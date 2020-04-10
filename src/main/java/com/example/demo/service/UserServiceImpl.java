@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService{
 	public boolean validateUsername(User user) {
 		boolean valid=true;
 		String username=user.getUsername();
-		if(username.length()<=4&&username.length()>=10) {
+		if(username.length()<=4||username.length()>=10) {
 			valid = false;
 		}
 		return valid;
@@ -25,6 +25,8 @@ public class UserServiceImpl implements UserService{
 
 	public static String convertFromUserToString(User user) {
 		String userToString = null;
+		if(user==null)
+			return null;
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			userToString= mapper.writeValueAsString(user);
