@@ -19,27 +19,27 @@ UserServiceImpl userServiceImpl;
 	@Test
 	void testValidateUsernamePositive() {
 		List<Project> projectList= new ArrayList<Project>();
-		projectList.add(new Project("p1","firstProject"));
-		projectList.add(new Project("p4","fourthProject"));
-		projectList.add(new Project("p4","fifthProject"));
+		projectList.add(new Project("p1",null, "firstProject"));
+		projectList.add(new Project("p4",null, "fourthProject"));
+		projectList.add(new Project("p4", null, "fifthProject"));
 		User user = new User("abhishek", 101, projectList);
 		assertEquals(true,userServiceImpl.validateUsername(user));
 	}
 	@Test
 	void testValidateUsernameNegativeBelowLowerLimit() {
 		List<Project> projectList= new ArrayList<Project>();
-		projectList.add(new Project("p1","firstProject"));
-		projectList.add(new Project("p4","fourthProject"));
-		projectList.add(new Project("p4","fifthProject"));
+		projectList.add(new Project("p1",null, "firstProject"));
+		projectList.add(new Project("p4",null, "fourthProject"));
+		projectList.add(new Project("p4",null, "fifthProject"));
 		User user = new User("a", 101, projectList);
 		assertEquals(false,userServiceImpl.validateUsername(user));
 	}
 	@Test
 	void testValidateUsernameNegativeAboveUpperLimit() {
 		List<Project> projectList= new ArrayList<Project>();
-		projectList.add(new Project("p1","firstProject"));
-		projectList.add(new Project("p4","fourthProject"));
-		projectList.add(new Project("p4","fifthProject"));
+		projectList.add(new Project("p1",null, "firstProject"));
+		projectList.add(new Project("p4",null, "fourthProject"));
+		projectList.add(new Project("p4",null, "fifthProject"));
 		User user = new User("abhishekPharate", 101, projectList);;
 		assertEquals(false,userServiceImpl.validateUsername(user));
 	}
@@ -47,18 +47,18 @@ UserServiceImpl userServiceImpl;
 	void testValidateUsernameNegativeUpperLimitCornerCase() {
 		//fail("Not yet implemented");
 		List<Project> projectList= new ArrayList<Project>();
-		projectList.add(new Project("p1","firstProject"));
-		projectList.add(new Project("p4","fourthProject"));
-		projectList.add(new Project("p4","fifthProject"));
+		projectList.add(new Project("p1",null, "firstProject"));
+		projectList.add(new Project("p4",null, "fourthProject"));
+		projectList.add(new Project("p4",null, "fifthProject"));
 		User user = new User("abhishekPh", 101, projectList);
 		assertEquals(false,userServiceImpl.validateUsername(user));
 	}
 	@Test
 	void testValidateUsernameNegativeLowerLimitCornerCase() {
 		List<Project> projectList= new ArrayList<Project>();
-		projectList.add(new Project("p1","firstProject"));
-		projectList.add(new Project("p4","fourthProject"));
-		projectList.add(new Project("p4","fifthProject"));
+		projectList.add(new Project("p1",null, "firstProject"));
+		projectList.add(new Project("p4",null, "fourthProject"));
+		projectList.add(new Project("p4",null, "fifthProject"));
 		User user = new User("abh", 101, projectList);
 		assertEquals(false,userServiceImpl.validateUsername(user));
 	}
@@ -66,9 +66,9 @@ UserServiceImpl userServiceImpl;
 	@Test
 	void testConvertFromUserToStringPositive() {
 		List<Project> projectList= new ArrayList<Project>();
-		projectList.add(new Project("p1","firstProject"));
-		projectList.add(new Project("p4","fourthProject"));
-		projectList.add(new Project("p4","fifthProject"));
+		projectList.add(new Project("p1",null, "firstProject"));
+		projectList.add(new Project("p4",null, "fourthProject"));
+		projectList.add(new Project("p4",null, "fifthProject"));
 		User user = new User("abhishekPharate", 101, projectList);
 		String convertedString=UserServiceImpl.convertFromUserToString(user);
 		assertTrue(convertedString instanceof String && convertedString.length()>0);
@@ -89,9 +89,9 @@ UserServiceImpl userServiceImpl;
 	@Test
 	void testConvertFromJasonToUserPositive() {
 		List<Project> projectList= new ArrayList<Project>();
-		projectList.add(new Project("p1","firstProject"));
-		projectList.add(new Project("p4","fourthProject"));
-		projectList.add(new Project("p4","fifthProject"));
+		projectList.add(new Project("p1",null, "firstProject"));
+		projectList.add(new Project("p4",null, "fourthProject"));
+		projectList.add(new Project("p4",null, "fifthProject"));
 		User expectedUser = new User("abhishek", 101, projectList);
 		
 		String userJason = "{\"username\":\"abhishek\",\"id\":101,\"projectList\":"
